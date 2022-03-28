@@ -15,8 +15,17 @@ export const createToken = async (email : string) => {
     return jwt.sign( { email }, key, { algorithm : 'RS256', expiresIn : 60 * 60 } )
 }
 
-// funcion que verifica el token
-export const verifyToken =async (token : string) => {
-    //VErifica el token
-    
+//Verificar el token obtenido 
+export const verifyToken = async ( token : string ) => { 
+    // leemos la llave
+    const cert = readFileSync( join(process.cwd(),'.secret', 'sign.key') );
+    // tratamos
+    try {
+        const decoded = jwt.verify(token, cert, { algorithms : ['RS256'] });
+        return decoded;
+    } catch (err) {
+        // error message
+        console.log(`Token ERROR : ${err}`);
+        return undefined;
+    }
 }
