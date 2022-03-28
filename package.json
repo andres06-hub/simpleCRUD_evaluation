@@ -2,7 +2,7 @@
   "name": "evalua_28_03_22",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "clean": "rm -rf build",
     "dev": "nodemon build/src/app.js",

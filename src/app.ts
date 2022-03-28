@@ -8,6 +8,7 @@ import { createConnection } from 'typeorm';
 //IMPORTAMOS RUTAS
 import routerLogin from './routes/login.routes';
 import routerSignup from './routes/signup.routes';
+import routerProducts from './routes/products.routes';
 
 ////////////////////////////////////////////////////////////////
 
@@ -33,7 +34,7 @@ app.use(express.json())
 //Usamos las RUTAS
 app.use(routerLogin);
 app.use(routerSignup);
-
+app.use(routerProducts);
 
 ////////////////////////////////////////////////
 // Hacemos llamado a la app
