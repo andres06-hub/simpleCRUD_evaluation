@@ -17,7 +17,8 @@ export const getProducts = async () => {
 export const getProduct = async (name:string) => {
     //Obtenemos un resultado y lo retornamos
     // Esperamos a que obtenga
-    const productFound = await getRepository(Product).findOne( name );
+    const productFound = await getRepository(Product).findOne( { name });
+    console.log("PRODUCT FOUND :: ",productFound);
     //Retornamos el resultado
     return productFound !== undefined;
 }
