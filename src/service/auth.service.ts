@@ -1,7 +1,7 @@
 // VAlidar datos para AUTORIZAR
 
 ////////////////////////////////////////////////////////////////
-// import { getUser } from '../models/schema/user.login'
+import { getUser } from '../models/schema/user.login'
 import bcrypt from '../service/bcrypt.service';
 import { createToken } from '../service/token.service';
 
@@ -13,7 +13,7 @@ export default {
         
         //Obtenemos el usuario que coincida  con el email 
         // const userFound = await getUser(email);
-        const userFound = true
+        const userFound = await getUser(email);
         console.log("->LOGIN USER FOUND :: ", userFound);
         
         // Si hay un usuario 
@@ -21,11 +21,10 @@ export default {
 
         //Obtenemos la contraseña del usuario obtenido
         //La contraseña esta hasheada
-        // const passHash  = userFound?.password;
-        const passHashmientras = "df,l,dlf,"
+        const passHash  = userFound?.password;
         //VAlidamos si la contraseña ontenida conincide con la de la DB
 
-        if(bcrypt.verify(passHashmientras, password)){
+        if(bcrypt.verify(passHash, password)){
             // Si se cumple
             //se crea el TOKEN
             const token = await createToken(email);

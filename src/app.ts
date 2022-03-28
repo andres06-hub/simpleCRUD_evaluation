@@ -3,10 +3,11 @@ import express from 'express';
 
 //IMPORTACIONES
 import config from './config'
-
+import { createConnection } from 'typeorm';
 ////////////////////////////////////////////////////////////////
 //IMPORTAMOS RUTAS
-import routerLogin from './routes/login.routes'
+import routerLogin from './routes/login.routes';
+import routerSignup from './routes/signup.routes';
 
 ////////////////////////////////////////////////////////////////
 
@@ -15,6 +16,9 @@ import routerLogin from './routes/login.routes'
 const app = express();
 //obtenemos el morgan
 const morgan =require('morgan');
+
+// CONEXION A LA DB
+createConnection();
 
 // ----------> MIDDLEWARE ---------------
 app.use(morgan('dev'))
@@ -28,7 +32,7 @@ app.use(express.json())
 // -------------> ROUTES <------------------
 //Usamos las RUTAS
 app.use(routerLogin);
-
+app.use(routerSignup);
 
 
 ////////////////////////////////////////////////

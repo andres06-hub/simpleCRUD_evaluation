@@ -13,13 +13,12 @@ const router = express.Router();
 //Deconstruimos los validadores
 const { params, validate } = loginValidator;
 
-
 router.route('/login')
     .get((req: Request, res: Response) => {
         //Respondemos al cliente 
         res.send("Hello from /login -> GET")
     })
-
+    
     //Ruta POST
         // -> Pasamos los validadores
     .post(params,validate, async ( req : Request, res : Response ) => {
