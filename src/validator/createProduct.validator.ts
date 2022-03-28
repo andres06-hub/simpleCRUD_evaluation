@@ -13,7 +13,7 @@ export default {
         body('price')
             .not().isEmpty().withMessage('Empty field!')
             .isNumeric().withMessage('Invalid field')
-            .isLength({ min:8, max:12 }).withMessage('Invalid Price')
+            .isLength({ min:0, max:1000000 }).withMessage('Invalid Price')
     ],
     //Validador de los resultados del params
     validate : function (req:Request, res:Response, next:NextFunction) {

@@ -9,7 +9,7 @@ import { createConnection } from 'typeorm';
 import routerLogin from './routes/login.routes';
 import routerSignup from './routes/signup.routes';
 import routerProducts from './routes/products.routes';
-
+import routerCreatedProduct from './routes/createProduct.routes'
 ////////////////////////////////////////////////////////////////
 
 
@@ -35,7 +35,7 @@ app.use(express.json())
 app.use(routerLogin);
 app.use(routerSignup);
 app.use(routerProducts);
-
+app.use(routerCreatedProduct);
 ////////////////////////////////////////////////
 // Hacemos llamado a la app
 app.listen(config.port, ()=>{
